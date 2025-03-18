@@ -1,0 +1,14 @@
+---
+:id: 244165300
+:submitters:
+- :name: AMBER TRAN
+  :email: u1354730@utah.edu
+- :name: THU HA
+  :email: u1429766@utah.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2024-04-04 22:59:18.446929000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2024-04-04 15:59:18.446929000 Z
+:status: processed
+:score: 84.5

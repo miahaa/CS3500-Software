@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatClient.MainPage"
+             BackgroundColor="#F4EFFF">
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Options">
+            <MenuFlyoutItem Text="Settings" Clicked="Settings_Clicked"/>
+            <MenuFlyoutItem Text="About" Clicked="About_Clicked"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="10" ColumnSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Server Address -->
+            <Label Text="Server address" FontSize="20" Grid.Row="0" Grid.Column="0" TextColor="Black"/>
+            <Entry x:Name="localHostLabel" FontSize="20" Grid.Row="0" Grid.Column="1" BackgroundColor="#E0AAFF" Completed="IPAddressCompleted"/>
+
+            <!-- User name -->
+            <Label Text="Name" FontSize="20" Grid.Row="1" Grid.Column="0" TextColor="Black"/>
+            <Entry x:Name="userNameEntry" FontSize="20" Grid.Row="1" Grid.Column="1" Placeholder="Enter your name before joining chat server..." BackgroundColor="#E0AAFF" TextColor="Black" PlaceholderColor="Black"
+                   TextChanged="ServerNameChanged" Completed="ServerNameCompleted"/>
+
+            <!-- Message Entry -->
+            <Label Text="Message" FontSize="20" Grid.Row="2" Grid.Column="0" TextColor="Black"/>
+            <Entry x:Name="chatEntry" FontSize="20" Grid.Row="2" Grid.Column="1" Placeholder="Type your message here..." BackgroundColor="#E0AAFF" TextColor="Black" PlaceholderColor="Black"
+                   Completed="SendMessage_Clicked"/>
+            <Button x:Name="sendButton" Text="Send" Clicked="SendMessage_Clicked" Grid.Row="2" Grid.Column="2" BackgroundColor="#C77DFF"/>
+
+            <!-- Connect Button -->
+            <Button x:Name="ConnectBtn" Text="Connect" Clicked="ConnectToServer" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#C77DFF"/>
+
+            <!-- Chat Display -->
+            <Frame BorderColor="#C77DFF" CornerRadius="10" Padding="5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#E0AAFF">
+                <Editor x:Name="chatLog" Text="" IsReadOnly="True" HeightRequest="300" BackgroundColor="#E0AAFF"/>
+            </Frame>
+
+            <!-- Status and Users Display -->
+            <Label x:Name="connectionStatusLabel" Text="Status: Disconnected" FontSize="18" Grid.Row="5" Grid.Column="0" TextColor="Red"/>
+            <Button x:Name="retrieveUsersButton" Text="Retrieve Users" Clicked="RetrieveUsers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="#C77DFF"/>
+
+            <!-- Online Users Display -->
+            <Frame BorderColor="#C77DFF" CornerRadius="10" Padding="5" Margin="0,10,0,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#E0AAFF">
+                <Editor x:Name="participantsList" Text="" IsReadOnly="True" HeightRequest="200" BackgroundColor="#E0AAFF"/>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>
