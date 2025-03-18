@@ -1,0 +1,65 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:clientgui="clr-namespace:ClientGUI"
+             x:Class="ClientGUI.MainPage">
+
+    <ContentPage.Resources>
+        <clientgui:GameDrawable x:Key="drawWorld"
+                              x:Name="worldPanel"/>
+    </ContentPage.Resources>
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Settings">
+            <MenuFlyoutSubItem Text="Themes">
+                <MenuFlyoutItem Text="Default" Clicked="SetDefaultTheme" />
+                <MenuFlyoutItem Text="Dark Mode" Clicked="SetBlueTheme" />
+                <MenuFlyoutItem Text="'Hack' Mode" Clicked="HackModeOn"/>
+            </MenuFlyoutSubItem>
+            <MenuFlyoutSubItem Text="Screen Size">
+                <MenuFlyoutItem Text="Default" Clicked="SetDefaultSize" />
+                <MenuFlyoutItem Text="600 x 600" Clicked="SetSmallSize" />
+                <MenuFlyoutItem Text="1200 x 1200" Clicked="SetLargeSize" />
+            </MenuFlyoutSubItem>
+        </MenuBarItem>
+        <MenuBarItem Text="About">
+            <MenuFlyoutItem Text="View About" Clicked="AboutClicked" />
+        </MenuBarItem>
+        <MenuBarItem Text="Help">
+            <MenuFlyoutItem Text="Need Help?" Clicked="HelpClicked" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <!-- Game Information Overlay -->
+        <StackLayout x:Name="GameInfoOverlay" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" MinimumWidthRequest="200"
+                     BackgroundColor="#88000000" HeightRequest="300" Spacing="30">
+            <Label x:Name="PlayerName" Text="ID:" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+            <Label x:Name="Mass" Text="Mass: 0" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+            <Label x:Name="Location" Text="Location: 0" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+            <Label x:Name="Time" Text="Time: 0" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+        </StackLayout>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <HorizontalStackLayout>
+                    <Label Text="Name:" FontSize="Medium" TextColor="White"/>
+                    <Entry Placeholder="Enter player name" x:Name="userNameEntry" TextColor="Black" PlaceholderColor="Gray"/>
+                    <Label Text="IP:" FontSize="Medium" TextColor="White"/>
+                    <Entry Placeholder="Enter your IP address" x:Name="localHost" Text="localhost" TextColor="Black" PlaceholderColor="Gray"/>
+                    <Button Text="Connect" Clicked="ConnectBtnClicked" BackgroundColor="#0078D7" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="ErrorBox" Margin="15" HorizontalOptions="Center" WidthRequest="800" HeightRequest="90" TextColor="Red"/>
+
+                </HorizontalStackLayout>
+
+                <Border Stroke="#000000" StrokeThickness="4" StrokeShape="Rectangle" HorizontalOptions="Center">
+                    <GraphicsView Drawable="{StaticResource drawWorld}" x:Name="PlaySurface" HeightRequest="800" WidthRequest="800" VerticalOptions="Center" HorizontalOptions="Center">
+                        <GraphicsView.GestureRecognizers>
+                            <PointerGestureRecognizer PointerMoved="PointerChanged"/>
+                            <TapGestureRecognizer Tapped="OnTap"/>
+                        </GraphicsView.GestureRecognizers>
+                    </GraphicsView>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

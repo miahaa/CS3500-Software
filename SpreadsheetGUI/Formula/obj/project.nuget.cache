@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4qcCRRzZNIQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hathu\\source\\CS3500-Software\\SpreadsheetGUI\\Formula\\Formula.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hathu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\hathu\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\hathu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}
