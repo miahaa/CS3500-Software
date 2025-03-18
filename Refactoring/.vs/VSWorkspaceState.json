@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DependencyGraphTests",
+    "\\Formula",
+    "\\FormulaEvaluator",
+    "\\FormulaEvaluatorTester",
+    "\\GradingTests"
+  ],
+  "SelectedNode": "\\FormulaEvaluatorTester\\Tester.cs",
+  "PreviewInSolutionExplorer": false
+}
